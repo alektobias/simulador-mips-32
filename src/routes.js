@@ -1,12 +1,14 @@
-import {Router} from 'express';
-import InstructionTranslate from './App/middlewares/InstructionTranslate';
-import InitializeRegisters from './App/middlewares/InitializeRegisters';
-import InitializeOperations from './App/middlewares/InitializeOperations';
-const router = Router();
+import React from 'react';
+import { Router, Switch, Route } from 'react-router-dom';
+import history from './Services/history';
+import Home from './Pages/Home';
 
-
-
-router.route('/').get((req, res) => res.send('foi mais uma vez'));
-router.route('/instruction').post(InstructionTranslate, (req, res) => {return res.json(req.reg)});
-
-export default router;
+export default function Routes() {
+  return (
+    <Router history={history}>
+        <Switch>
+            <Route path="/" component={Home} exact/>
+        </Switch>
+    </Router>
+  );
+}

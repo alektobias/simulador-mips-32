@@ -1,24 +1,16 @@
-import express from 'express';
-import routes from './routes';
-import InitializeOperations from './App/middlewares/InitializeOperations';
-import InitializeRegisters from './App/middlewares/InitializeRegisters';
+import React from 'react';
+import { Provider } from 'react-redux';
+import GlobalStyle from './Styles/global';
+import Routes from './routes';
+import store from './Store';
 
-
-class App  {
-    constructor() {
-        this.server = express();
-        this.middlewares();
-        this.routes();
-    }
-    middlewares () {
-        this.server.use(express.json());
-        this.server.use(InitializeOperations);
-        this.server.use(InitializeRegisters)
-    }
-    routes() {
-        this.server.use(routes);
-    }
-
+function App() {
+  return (
+    <Provider store={store}>  
+      <Routes/>
+      <GlobalStyle/>
+    </Provider>
+  )
 }
 
-export default new App().server;
+export default App;
