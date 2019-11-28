@@ -3,8 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   color: #0f0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  > span {
+      margin-top: 20px;
+  }
   div {
     max-width: 1200px;
     width: 100%;
@@ -14,17 +18,24 @@ export const Container = styled.div`
     margin-top: 40px;
     padding: 40px;
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 80% 20%;
     section{
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        h3{
+            padding: 0 0 16px 16px
+        }
         aside {
             justify-self: flex-start;
             height: 100%;
             display: flex;
             flex-direction: column;
-            padding-left: 16px; 
+            padding-left: 16px;
+            span {
+                font-size: 18px;
+                line-height: 24px;
+            }
         }
         article {
             justify-self: flex-start;
@@ -36,6 +47,7 @@ export const Container = styled.div`
                 margin: 0;
                 display:flex;
                 flex-direction: column;
+                width: 100%;
             }
             ::-webkit-scrollbar {
                 width: 6px;
